@@ -6,6 +6,7 @@ services:
             - 5000:5000
         environment:
             APP_SETTINGS: config.DevelopmentConfig
+            DATABASE_URL: postgresql://postgres:postgres@db/flaskbyexample
         volumes:
             - .:/code
         depends_on:
@@ -13,7 +14,7 @@ services:
     db:
         image: postgres:9.4
         ports:
-            - 5432:5432
+            - 5433:5432
         volumes_from:
             - pg_data
         environment:

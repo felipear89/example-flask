@@ -6,4 +6,4 @@ ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 ADD . /code/
 
-CMD python app.py
+CMD python manage.py db upgrade && python manage.py runserver -h 0.0.0.0
