@@ -21,6 +21,12 @@ def index():
         db.session.commit()
     return render_template('index.html', todos=Todo.query.all())
 
+@app.route('/task/<id>', methods=['DELETE'])
+def remove(id):
+	Todo.query.filter_by(id=id).delete()
+	db.session.commit()
+	return "ok"
+
 
 @app.route('/<name>')
 def hello_name(name):

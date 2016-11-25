@@ -34,11 +34,13 @@
                 <thead>
                   <tr>
                     <th>Name</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 {% for t in todos%}
                   <tr>
                     <td>{{ t.name }}</td>
+                    <td><a class="remove-task" data-id="{{t.id}}" href="#">remove</a></td>
                   </tr>
                 {% endfor %}
               </table>
@@ -50,5 +52,17 @@
     <br><br>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $('.remove-task').click(function(evt) {
+        var id = $(this).attr("data-id");
+        $.ajax({
+          url: '/task/' + id,
+          type: 'DELETE',
+          success: function(result) {
+            location.reload();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
