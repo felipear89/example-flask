@@ -26,6 +26,9 @@ def index():
 def hello_name(name):
     return "Hello {}!".format(name)
 
+@app.route('/helloWorld')
+def say_hello_world():
+    return "Hello World!"
 
 if __name__ == '__main__':
     app.run()
