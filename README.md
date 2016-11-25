@@ -16,7 +16,7 @@ If you want to run local then you will need:
 psql postgres
 create database flaskbyexample
 ```
-- Run `python manage.py migrate` and `python manage.py runserver`
+- Run `python manage.py db upgrade` `python manage.py db migrate` and `python manage.py runserver`
 
 
 ## Run with docker
